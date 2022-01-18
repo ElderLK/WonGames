@@ -1,10 +1,13 @@
 import Head from 'next/head';
-import GlobalStyles from 'styles/global';
+import { ThemeProvider } from 'styled-components';
 import type { AppProps /*, AppContext */ } from 'next/app';
+
+import GlobalStyles from 'styles/global';
+import theme from 'styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Head>
         <title>NextJS - Boilerplate</title>
         <link rel="shortcut icon" href="/images/logo/logo512.png" />
@@ -17,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
 
